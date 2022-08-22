@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Timetable from '../components/Timetable.astro'
+import AboutMe from '../components/About.astro'
+import heroImage from '../public/img/paint.svg'
+---
+
+<Layout title="Welcome to Astro.">
+  {/* Hero */}
+  <div class="relative overflow-hidden bg-pink-600">
+    <img
+      src={heroImage}
+      alt=""
+      class="absolute bottom-0 right-1/2 w-52 max-w-xl translate-x-1/2 lg:right-12 lg:w-[42%] lg:translate-x-0"
+    />
+    <div class="mx-auto max-w-7xl p-8">
+      <div class="pt-12 pb-48 lg:pt-48">
+        <div class="relative mx-auto max-w-xl text-center lg:mx-0 lg:max-w-2xl lg:text-left">
+          <span
+            class="absolute top-0 left-1/2 -translate-x-1/2 rounded-full bg-pink-400 py-1 px-4 text-xs font-bold uppercase tracking-widest text-white md:text-base lg:left-0 lg:translate-x-0"
+          >
+            1-day Workshop
+          </span>
+          <h1
+            class="pt-12 text-4xl font-black text-white md:text-5xl lg:max-w-2xl lg:text-7xl xl:text-8xl"
+          >
+            Tailwind CSS Theming
+          </h1>
+          <p class="mt-4 text-lg font-semibold uppercase tracking-widest text-pink-200 lg:mt-8">
+            with Simon Vrachliotis
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="mx-auto max-w-7xl p-8 py-16 md:py-24 lg:py-32">
+      <div class="prose prose-lg prose-pink mx-auto max-w-prose xl:prose-xl">
+        {/* <Image src={introImage} alt="" class="w-24 md:w-40" /> */}
+        <h2>Traditional theming support with the Tailwind CSS Plugin API</h2>
+        <p>
+          In this workshop, we'll add support for multiple color themes to the{' '}
+          <a href="https://calendar-booking-ui.protailwind.com">Calendar Booking App</a>.
+        </p>
+        <p>
+          Before we dive in, let's go over some formalities and housekeeping around the workshop.
+        </p>
+
+        <hr />
+        <h2>What and when?</h2>
+        <p>Here's the timetable for today's workshop.</p>
+
+        <Timetable />
+        <hr />
+        <h2>Focus groups & breakout rooms</h2>
+        <p>
+          You'll be split in small focus groups for today's workshop challenges. This consists of
+          separate "breakout rooms", where each member of the group will take turns "driving" a
+          challenge by sharing their screen.
+        </p>
+        <p>The groups will remain the same for the entire workshop.</p>
+        <p>
+          At the end of challenges, we'll all come back together to discuss. "Pairing" in small
+          groups and actively participating to group discusions are key to this workshop. They'll
+          help you maximise your learning experience.
+        </p>
+        <p>
+          I really encourage everyone to participate actively, ask questions, and of course be
+          supportive of one another!
+        </p>
+      </div>
+    </div>
+
+    <a
+      href="/workshop/01"
+      class="block bg-pink-600 py-12 text-center text-xl font-bold text-white transition hover:bg-rose-500 md:py-16 md:text-2xl lg:py-24"
+    >
+      Allright. Let's get started! &rarr;
+    </a>
+    <AboutMe />
+  </div>
+</Layout>

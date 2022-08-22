@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props as Props
+
+import Layout from './Layout.astro'
+---
+
+<Layout title={title}>
+  <div class="my-24 px-4 sm:px-6 lg:px-8">
+    <div
+      class="prose prose-slate prose-pink mx-auto xl:prose-xl [&_code:where(:not(pre_code,button_code))]:mx-1 [&_code:where(:not(pre_code,button_code))]:rounded [&_code:where(:not(pre_code,button_code))]:bg-indigo-100 [&_code:where(:not(pre_code,button_code))]:px-2 [&_code:where(:not(pre_code,button_code))]:py-1 [&_code:where(:not(pre_code,button_code))]:italic [&_code:where(:not(pre_code,button_code))]:text-black/80 [&_code:where(:not(pre_code,button_code)):before]:content-none [&_code:where(:not(pre_code,button_code)):after]:content-none"
+    >
+      <slot />
+    </div>
+  </div>
+</Layout>

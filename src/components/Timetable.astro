@@ -1,0 +1,97 @@
+---
+const program = [
+  {
+    time: '1:00 PM - 1:15 PM',
+    what: 'housekeeping',
+    duration: '15 min',
+  },
+  {
+    time: '1:15 PM - 2:15 PM',
+    what: 'Theming part 1',
+    duration: '60 min',
+  },
+  {
+    time: '2:15 PM - 2:30 PM',
+    what: 'break',
+    duration: '15 min',
+  },
+  {
+    time: '2:30 PM - 3:45 PM',
+    what: 'Theming part 2',
+    duration: '75 min',
+  },
+  {
+    time: '3:45 PM - 4:00 PM',
+    what: 'break',
+    duration: '15 min',
+  },
+  {
+    time: '4:00 PM - 5:00 PM',
+    what: 'Theming part 3',
+    duration: '60 min',
+  },
+]
+
+export type Classes = string[]
+
+function cx(...classes: Classes) {
+  return classes.filter(Boolean).join(' ')
+}
+---
+
+<div class="not-prose mt-8 flex flex-col text-left">
+  <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+      <table class="min-w-full divide-y-2 divide-teal-500">
+        <thead>
+          <tr>
+            <th
+              scope="col"
+              class="py-3.5 pl-4 pr-3 text-left text-base font-semibold text-slate-900"
+            >
+              Time
+            </th>
+            <th scope="col" class="py-3.5 px-3 text-left text-base font-semibold text-slate-900">
+              What?
+            </th>
+            <th scope="col" class="py-3.5 px-3 text-left text-base font-semibold text-slate-900">
+              Duration
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200">
+          {
+            program.map((entry, index) => (
+              <tr class={cx(entry.what === 'break' ? 'bg-teal-100/50' : '')}>
+                <td
+                  class={cx(
+                    'whitespace-nowrap py-4 pl-4 pr-3 text-base font-medium',
+                    entry.what === 'break' ? 'text-teal-900' : 'text-slate-900'
+                  )}
+                >
+                  {entry.time}
+                </td>
+                <td
+                  class={cx(
+                    'whitespace-nowrap py-4 px-3 text-base capitalize',
+                    entry.what === 'break' ? 'font-medium text-teal-600' : 'text-slate-500'
+                  )}
+                >
+                  {entry.what}
+                </td>
+                <td
+                  class={cx(
+                    'whitespace-nowrap py-4 px-3 text-base',
+                    entry.what === 'break' ? 'font-medium text-teal-600' : 'text-slate-500'
+                  )}
+                >
+                  {entry.duration}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

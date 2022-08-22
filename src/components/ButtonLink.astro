@@ -1,0 +1,14 @@
+---
+export interface Props {
+  path: string
+}
+
+const { path } = Astro.props as Props
+---
+
+<a
+  class="inline-block rounded-md bg-indigo-600 px-5 py-3 font-semibold text-white no-underline hover:bg-indigo-500 active:bg-indigo-600"
+  href={path}
+>
+  <slot />
+</a>

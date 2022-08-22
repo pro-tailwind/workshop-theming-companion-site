@@ -1,0 +1,17 @@
+---
+export interface Props {
+  link: {
+    name: string
+    path: string
+  }
+}
+
+const { link } = Astro.props as Props
+---
+
+<a
+  href={link.path}
+  class="border-b-2 border-transparent py-1 font-semibold text-white hover:border-white"
+>
+  {link.name}
+</a>
