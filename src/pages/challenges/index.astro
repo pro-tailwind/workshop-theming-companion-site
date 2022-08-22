@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageContainer from '../../components/PageContainer.astro'
+import PageHeading from '../../components/PageHeading.astro'
+import ChallengeCard from '../../components/ChallengeCard.astro'
+
+const lessons = await Astro.glob('../challenges/**/*.{md,mdx}')
+---
+
+<Layout title="Challenges">
+  <PageContainer>
+    <PageHeading>Multiple color theme support, step by step.</PageHeading>
+    <p class="mt-4 max-w-prose text-lg font-medium text-slate-600 md:mt-6">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, sed animi recusandae
+      consequuntur quis et eveniet nulla. Maxime mollitia eaque harum quasi molestiae, nihil ab,
+      asperiores illo, fugiat vel optio.
+    </p>
+
+    <ul class="mx-auto mt-16 grid max-w-lg gap-12 md:max-w-none md:grid-cols-2 xl:grid-cols-3">
+      {
+        lessons.map((lesson) => (
+          <li>
+            <ChallengeCard
+              title={lesson.frontmatter.title}
+              image={lesson.frontmatter.image}
+              url={lesson.url}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </PageContainer>
+</Layout>

@@ -28,7 +28,11 @@ import '../styles/syntax-highlighting.css'
     />
   </head>
   <body class="antialiased">
-    <NavBar />
-    <slot />
+    <div class="grid min-h-screen grid-rows-[auto,1fr]">
+      <NavBar />
+      <main>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

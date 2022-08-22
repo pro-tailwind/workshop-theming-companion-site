@@ -3,7 +3,7 @@ import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
 
 import cx from 'classnames'
 
-export function Reveal({ fileName, children }) {
+export function Reveal({ title, children }) {
   return (
     <Disclosure as="div">
       {({ open }) => (
@@ -18,8 +18,7 @@ export function Reveal({ fileName, children }) {
               )}
             >
               <span>
-                {open ? 'Hide' : 'Reveal'} <code className="italic text-black/75">{fileName}</code>{' '}
-                code snippet
+                {open ? 'Hide' : 'Show'} {title}
               </span>
               <span>
                 {open ? (

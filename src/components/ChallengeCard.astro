@@ -1,0 +1,21 @@
+---
+export interface Props {
+  title: string
+  url: string
+  image?: string
+}
+
+const { title, url, image } = Astro.props as Props
+---
+
+<div class="group relative">
+  <div
+    class="w-full overflow-hidden rounded-lg bg-white shadow-md transition group-hover:shadow-lg"
+  >
+    {image && <img src={image} alt="" class="aspect-video object-cover" />}
+    <h2 class="border-t border-slate-200 p-8 text-center text-lg font-semibold text-slate-900">
+      {title}
+    </h2>
+  </div>
+  <a class="absolute inset-0" href={url}></a>
+</div>

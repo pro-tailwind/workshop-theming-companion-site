@@ -42,7 +42,7 @@ function cx(...classes: Classes) {
 <div class="not-prose mt-8 flex flex-col text-left">
   <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-      <table class="min-w-full divide-y-2 divide-teal-500">
+      <table class="min-w-full divide-y-2 divide-rose-500">
         <thead>
           <tr>
             <th
@@ -62,11 +62,11 @@ function cx(...classes: Classes) {
         <tbody class="divide-y divide-slate-200">
           {
             program.map((entry, index) => (
-              <tr class={cx(entry.what === 'break' ? 'bg-teal-100/50' : '')}>
+              <tr class={cx(entry.what === 'break' ? 'bg-rose-100/50' : '')}>
                 <td
                   class={cx(
                     'whitespace-nowrap py-4 pl-4 pr-3 text-base font-medium',
-                    entry.what === 'break' ? 'text-teal-900' : 'text-slate-900'
+                    entry.what === 'break' ? 'text-rose-900' : 'text-slate-900'
                   )}
                 >
                   {entry.time}
@@ -74,7 +74,7 @@ function cx(...classes: Classes) {
                 <td
                   class={cx(
                     'whitespace-nowrap py-4 px-3 text-base capitalize',
-                    entry.what === 'break' ? 'font-medium text-teal-600' : 'text-slate-500'
+                    entry.what === 'break' ? 'font-medium text-rose-600' : 'text-slate-500'
                   )}
                 >
                   {entry.what}
@@ -82,7 +82,7 @@ function cx(...classes: Classes) {
                 <td
                   class={cx(
                     'whitespace-nowrap py-4 px-3 text-base',
-                    entry.what === 'break' ? 'font-medium text-teal-600' : 'text-slate-500'
+                    entry.what === 'break' ? 'font-medium text-rose-600' : 'text-slate-500'
                   )}
                 >
                   {entry.duration}

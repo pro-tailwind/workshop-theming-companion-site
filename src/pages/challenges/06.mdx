@@ -1,8 +1,11 @@
 ---
 layout: ../../layouts/Challenge.astro
+title: 06. Semantic color names
+image: https://placekitten.com/600/400
 ---
 
 import ButtonLink from '../../components/ButtonLink.astro'
+import { Reveal } from '../../components/reveal.jsx'
 
 # A color palette headstart
 
@@ -12,12 +15,11 @@ There are [many useful online tools](#) to help you create color palettes.
 
 I used [Huetone](https://huetone.ardov.me) to create our workshop color shades. After the workshop, you should totally experiment with these and explore some of the great online tools!
 
-Inside the `/workshop` directory, you'll find a `themes.js` file. This is where our custom colors are defined.
+---
 
-Here's what the file looks like:
+<Reveal title="color themes code" client:load>
 
 ```js
-// workshop/themes.js
 const themes = {
   default: {
     colors: {
@@ -64,6 +66,10 @@ const themes = {
 }
 ```
 
+</Reveal>
+
+---
+
 You can see that we've followed Tailwind's convention of `*-50` to `*-900` for naming our shades.
 
 You don't necessarily have to do that, but since we're going to implement multiple themes to an existing Tailwind CSS project, matching the naming convention is going to make our lives much easier.
@@ -78,8 +84,7 @@ Here's how we currently implement these colors in our project:
 
 ```js
 // tailwind.config.js
-
-const themes = require('./workshop/themes')
+const themes = {...}
 
 module.exports = {
   theme: {
@@ -116,4 +121,4 @@ blah blahg blaaaaa
 
 With that all said... Let's jump into our first challenge!
 
-<ButtonLink path="/workshop/02">Take challenge #1</ButtonLink>
+<ButtonLink path="https://play.tailwindcss.com/qrPEmyJ49y">Take challenge #1</ButtonLink>
