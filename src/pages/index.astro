@@ -2,14 +2,13 @@
 import Layout from '../layouts/Layout.astro'
 import Timetable from '../components/Timetable.astro'
 import AboutMe from '../components/About.astro'
-import heroImage from '../public/img/paint.svg'
 ---
 
 <Layout title="Welcome to Astro.">
   {/* Hero */}
   <div class="relative overflow-hidden bg-pink-600">
     <img
-      src={heroImage}
+      src="/img/paint.svg"
       alt=""
       class="absolute bottom-0 right-1/2 w-52 max-w-xl translate-x-1/2 lg:right-12 lg:w-[42%] lg:translate-x-0"
     />
