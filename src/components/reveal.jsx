@@ -1,5 +1,5 @@
 import { Disclosure, Transition } from '@headlessui/react'
-import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline/index.js'
 
 import cx from 'classnames'
 
