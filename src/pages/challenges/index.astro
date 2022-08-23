@@ -15,11 +15,11 @@ const lessons = await Astro.glob('../challenges/**/*.{md,mdx}')
       project using Tailwind CSS.
     </p>
     <p class="mt-4 max-w-prose text-lg font-medium text-slate-600 md:mt-6">
-      We'll take it step by step, starting with a CSS file and ending with a pretty cool Tailwind
-      CSS plugin that dynamically generates themable color utilities based on a color themes input.
+      We'll take it step by step, starting with a CSS file and ending with a pretty neat Tailwind
+      CSS plugin that dynamically generates color utilities based on a themes object input.
     </p>
 
-    <ul class="mx-auto mt-16 grid max-w-lg gap-12 md:max-w-none md:grid-cols-2 xl:grid-cols-3">
+    <ul class="mx-auto mt-16 grid max-w-lg gap-8 md:max-w-none md:grid-cols-2 xl:grid-cols-3">
       {
         lessons.map((lesson) => (
           <li>
