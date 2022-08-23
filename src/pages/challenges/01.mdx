@@ -140,50 +140,110 @@ module.exports = {
 
 Hmmmm. Is this... theming?
 
-<img src="/img/theming-butterfly.jpg" alt="butterfly meme about theming" />
+<img src="/img/theming-butterfly.jpg" alt="butterfly meme about theming" class="rounded-lg shadow-xl" />
 
 
 Nope.
 
 
-**There is no theming happeneing at all here**. We've extended our theme with new colors.
+**There is no theming happeneing at all here**. We've just extended our theme with new colors.
 
 Each color is generating new, different utility classes. Like `bg-rainforest-500`, or `text-candy-800`.
 
-Those have a "hardcoded" color baked in their name. They hold _one specific value_.
+Those colors have a "hardcoded" value baked in their name. _One_ specific value.
 
-What we want is to be able to **use the same color utility class across all themes**. We need a name that _makes sesnse_ regardless of what color that utility class represents.
+What we want is to be able to **use the same color utility class across all themes**. 
 
-A _semantic_ color name.
+We need a name that _makes sesnse_ regardless of what color that utility class represents. A _semantic_ color name.
 
-And we need the colors to be _redefined_ based on the currently active theme.
+We should be able to **redefine that color** based on the currently active theme.
 
-We'll go for a CSS-only solution here, leveraging the great power of CSS custom properties, or CSS variables.
+To do this, let's leverage the power of **CSS custom properties**, or CSS variables.
 
 ---
 
-## CSS variables for the win
+## CSS variables for the win!
 
-CSS variables are well supported in most browsers.
+CSS variables are defined with a two-dash prefix `--`, and consumed with the `var()` function.
 
-You don’t need anything special to start using them.
+Here's an example:
 
-Matter of fact, Tailwind CSS makes extensive use of CSS variables already. If you’re using Tailwind, you are *already using* CSS variables.
+```css
+:root {
+  /* CSS var definition */
+  --primary-500: #6b70fc;
+}
 
-What makes CSS variables super powerful is that they can be *redefined* within any CSS selector. When doing so, the new value will **only take effect within the scope of that selector**.
+.button {
+  /* CSS var consumption */
+  background-color: var(--primary-500);
+  ...
+}
 
-This is incredibly useful.
+```
 
-You can declare CSS variable at the top level (root scope) in your CSS. These values will be available everywhere.
+A great feature of CSS variables is that they can be *redefined* within any CSS selector. 
+
+When doing so, the new value will **only take effect within the scope of that selector**:
+
+```css
+:root {
+  --primary-500: #6b70fc;
+}
+
+.button {
+  background-color: var(--primary-500);
+  ...
+}
+
+.button--pink {
+  /* Redefine the value of an existing CSS variable */
+  --primary-500: deeppink;
+}
+
+```
+
+With that in place, take the following markup:
+
+```html
+<button class="button">Indigo button</button>
+<button class="button button--pink">Pink button</button>
+```
+
+Here's how these two buttons will look like:
+
+<div class="flex gap-2">
+  <button class="px-5 py-2 rounded font-semibold text-white bg-base-500">Indigo button</button>
+  <button class="px-5 py-2 rounded font-semibold text-white bg-[deeppink]">Pink button</button>
+</div>
+
+The Indigo button is using the color value defined at the `:root` scope. The Pink button uses the valued scoped to the `.button-pink` class.
+
+This is **incredibly useful** for our theming use case.
+
+---
+
+### Nested CSS variable scopes
+
+You can declare CSS variable at the top level - **the root scope** - in your CSS. These values will be available everywhere throughout the project.
 
 You can then create “theme scope” selectors, where you redefine these same CSS variables with new values.
 
-And any HTML element within a given theme scope will get those updated values when reading on of the CSS variables!
-
-blah blahg blaaaaa
+Any HTML element within a given theme scope will get those updated values when reading on of the CSS variables!
 
 ---
 
-With that all said... Let's jump into our first challenge!
+## 🏆 Your first challenge 🏆
 
-<ButtonLink path="https://play.tailwindcss.com/qrPEmyJ49y">Take challenge #1</ButtonLink>
+Leverage the power of CSS variables to create a new series of `primary` color shades, from `50` to `900`.
+
+These colors should: 
+
+- have a base value at the **global scope** 
+- be redefined within **theme scopes**
+
+Do your work in the Tailwind Play link below, where you'll find more instructions and hints for this first challenge.
+
+✌️ Good luck!
+
+<ButtonLink path="https://play.tailwindcss.com/uKxWz5kze4">Take challenge #1</ButtonLink>
