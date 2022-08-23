@@ -7,15 +7,56 @@ image: /img/thumbnails/01.jpg
 import ButtonLink from '../../components/ButtonLink.astro'
 import { Reveal } from '../../components/reveal.jsx'
 
-# A color palette headstart
+We'll kick off the workshop with a little head start - three custom color themes:
 
-Creating color palettes from scratch can send you down a _deceptively large_ rabbit hole. For this time-boxed workshop, we'll get a headstart and use these three custom color shades:
+<div class="my-10 flex flex-wrap gap-6">
+    <div class="inline-flex overflow-hidden rounded-md" data-theme="base">
+      <div class="bg-base-50 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">50</div>
+      <div class="bg-base-100 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">100</div>
+      <div class="bg-base-200 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">200</div>
+      <div class="bg-base-300 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">300</div>
+      <div class="bg-base-400 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">400</div>
+      <div class="bg-base-500 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">500</div>
+      <div class="bg-base-600 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">600</div>
+      <div class="bg-base-700 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">700</div>
+      <div class="bg-base-800 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">800</div>
+      <div class="bg-base-900 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">900</div>
+    </div>
+    <div class="inline-flex overflow-hidden rounded-md" data-theme="rainforest">
+      <div class="bg-rainforest-50 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">50</div>
+      <div class="bg-rainforest-100 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">100</div>
+      <div class="bg-rainforest-200 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">200</div>
+      <div class="bg-rainforest-300 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">300</div>
+      <div class="bg-rainforest-400 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">400</div>
+      <div class="bg-rainforest-500 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">500</div>
+      <div class="bg-rainforest-600 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">600</div>
+      <div class="bg-rainforest-700 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">700</div>
+      <div class="bg-rainforest-800 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">800</div>
+      <div class="bg-rainforest-900 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">900</div>
+    </div>
+    <div class="inline-flex overflow-hidden rounded-md" data-theme="candy">
+      <div class="bg-candy-50 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">50</div>
+      <div class="bg-candy-100 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">100</div>
+      <div class="bg-candy-200 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">200</div>
+      <div class="bg-candy-300 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">300</div>
+      <div class="bg-candy-400 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">400</div>
+      <div class="bg-candy-500 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">500</div>
+      <div class="bg-candy-600 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">600</div>
+      <div class="bg-candy-700 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">700</div>
+      <div class="bg-candy-800 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">800</div>
+      <div class="bg-candy-900 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">900</div>
+    </div>
+  </div>
 
-There are [many useful online tools](#) to help you create color palettes.
+Creating color palettes from scratch _will_ send you down a _deceptively large_ rabbit hole, so we'll skip this bit. 
 
-I used [Huetone](https://huetone.ardov.me) to create our workshop color shades. After the workshop, you should totally experiment with these and explore some of the great online tools!
+There are [many useful online tools](#) to help you create color palettes. I used [Huetone](https://huetone.ardov.me) to create the three workshop color shades. 
+
+After the workshop, you should totally experiment with some of the great online tools!
 
 ---
+
+Click on the toggle below to show the code for our three color themes.
 
 <Reveal title="color themes code" client:load>
 
@@ -72,15 +113,13 @@ const themes = {
 
 You can see that we've followed Tailwind's convention of `*-50` to `*-900` for naming our shades.
 
-You don't necessarily have to do that, but since we're going to implement multiple themes to an existing Tailwind CSS project, matching the naming convention is going to make our lives much easier.
+We could use totally different shade names, but since we're going to implement multiple themes to _an already existing_ Tailwind CSS project, matching the naming convention will make our lives much easier.
 
 ---
 
-## Is this... theming?
+## Current implementation
 
-Nope.
-
-Here's how we currently implement these colors in our project:
+Right now, we're just defining three new colors in our Tailwind config:
 
 ```js
 // tailwind.config.js
@@ -99,21 +138,47 @@ module.exports = {
 }
 ```
 
+Hmmmm. Is this... theming?
+
+<img src="/img/theming-butterfly.jpg" alt="butterfly meme about theming" />
+
+
+Nope.
+
+
 **There is no theming happeneing at all here**. We've extended our theme with new colors.
 
 Each color is generating new, different utility classes. Like `bg-rainforest-500`, or `text-candy-800`.
 
-Those have a "hardcoded" color baked in their name. And hold one specific value.
+Those have a "hardcoded" color baked in their name. They hold _one specific value_.
 
-What we want is to be able to use the same color utility class across all themes. We need a name that _makes sesnse_ regardless of what color that utility class represents.
+What we want is to be able to **use the same color utility class across all themes**. We need a name that _makes sesnse_ regardless of what color that utility class represents.
 
 A _semantic_ color name.
 
 And we need the colors to be _redefined_ based on the currently active theme.
 
+We'll go for a CSS-only solution here, leveraging the great power of CSS custom properties, or CSS variables.
+
 ---
 
-## CSS variables to the rescue
+## CSS variables for the win
+
+CSS variables are well supported in most browsers.
+
+You don’t need anything special to start using them.
+
+Matter of fact, Tailwind CSS makes extensive use of CSS variables already. If you’re using Tailwind, you are *already using* CSS variables.
+
+What makes CSS variables super powerful is that they can be *redefined* within any CSS selector. When doing so, the new value will **only take effect within the scope of that selector**.
+
+This is incredibly useful.
+
+You can declare CSS variable at the top level (root scope) in your CSS. These values will be available everywhere.
+
+You can then create “theme scope” selectors, where you redefine these same CSS variables with new values.
+
+And any HTML element within a given theme scope will get those updated values when reading on of the CSS variables!
 
 blah blahg blaaaaa
 
