@@ -7,6 +7,18 @@ image: /img/thumbnails/02.jpg
 import ButtonLink from '../../components/ButtonLink.astro'
 import { Reveal } from '../../components/reveal.jsx'
 
+## 🐇 TL;DR
+
+- We added themable colors that change fron theme to theme, but...
+- We `borked` the color opacity support in the process 😭
+- We need to **compose Tailwind's internal opacity CSS variable** within our themable colors
+
+⬇️ [Skip to the challenge](#-your-challenge)
+
+---
+
+## 🐢 Background
+
 When implementing our themable colors, we’ve accidentally thrown away an important feature of Tailwind CSS: **Color Opacity management**.
 
 Oh no! 🙀
@@ -125,9 +137,11 @@ In other words, we’re stuck with using full opacity colors only with our curre
 
 That’s a bummer!
 
-This is definitely not good enough to pretend to do real theming with Tailwind CSS.
+### `<alpha-value>` to the rescue
 
-Let’s improve the situation in the next challenge!
+Luckily, Tailwind gives us access to it's internal `<alpha-value>`, which we can use to compose our own `rgb()` colors when consuming CSS variables.
+
+This is what you'll need to do in this challenge!
 
 ---
 

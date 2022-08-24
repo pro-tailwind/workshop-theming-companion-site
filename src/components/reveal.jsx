@@ -8,7 +8,7 @@ export function Reveal({ title, children }) {
     <Disclosure as="div">
       {({ open }) => (
         <>
-          <div className="mt-8">
+          <div className="not-prose mt-8">
             <Disclosure.Button
               className={cx(
                 'group flex w-full items-center justify-between gap-4 rounded-md px-6 py-4 focus:outline-none focus:ring',

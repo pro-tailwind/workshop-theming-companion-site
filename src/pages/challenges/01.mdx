@@ -7,9 +7,21 @@ image: /img/thumbnails/01.jpg
 import ButtonLink from '../../components/ButtonLink.astro'
 import { Reveal } from '../../components/reveal.jsx'
 
+## 🐇 TL;DR
+
+- We start with 3 custom color shades: `base`, `rainforest` and `candy`
+- These are "normal" colors, they don't change between themes
+- We need to **define these colors as CSS variables**, so they can change!
+
+⬇️ [Skip to the challenge](#-your-first-challenge)
+
+---
+
+## 🐢 Background
+
 We'll kick off the workshop with a little head start - three custom color themes:
 
-<div class="my-10 flex flex-wrap gap-6">
+<div class="not-prose my-10 flex flex-wrap gap-6">
   <div class="inline-flex overflow-hidden rounded-md" data-theme="base">
     <div class="grid h-16 w-16 place-items-end bg-base-50 p-1 font-semibold leading-none text-base-900">
       50
@@ -177,7 +189,7 @@ We could use totally different shade names, but since we're going to implement m
 
 ---
 
-## Current implementation
+### Current implementation
 
 Right now, we're just defining three new colors in our Tailwind config:
 
@@ -224,7 +236,7 @@ To do this, let's leverage the power of **CSS custom properties**, or CSS variab
 
 ---
 
-## CSS variables for the win!
+### CSS variables for the win!
 
 CSS variables are defined with a two-dash prefix `--`, and consumed with the `var()` function.
 
@@ -272,9 +284,13 @@ With that in place, take the following markup:
 
 Here's how these two buttons will look like:
 
-<div class="flex gap-2">
-  <button class="rounded bg-base-500 px-5 py-2 font-semibold text-white">Indigo button</button>
-  <button class="rounded bg-[deeppink] px-5 py-2 font-semibold text-white">Pink button</button>
+<div class="not-prose flex gap-2">
+  <button class="rounded bg-base-500 px-5 py-2 font-semibold text-white hover:bg-opacity-90">
+    Indigo button
+  </button>
+  <button class="rounded bg-[deeppink] px-5 py-2 font-semibold text-white hover:bg-opacity-90">
+    Pink button
+  </button>
 </div>
 
 The Indigo button is using the color value defined at the `:root` scope. The Pink button uses the valued scoped to the `.button-pink` class.
@@ -295,16 +311,17 @@ Any HTML element within a given theme scope will get those updated values when r
 
 ## 🏆 Your first challenge 🏆
 
-Leverage the power of CSS variables to create a new series of `primary` color shades, from `50` to `900`.
+In the Tailwind Play below:
 
-These colors should:
+1. Have a look, but **do not change anything in the HTML tab**
 
-- have a base value at the **global scope**
-- be redefined within **theme scopes**
+2. In the CSS tab, **define CSS variables** for `primary` colors, from `50` to `900`. Do this at the `:root` scope, and name the variables `--primary-*`
 
-Do your work in the Tailwind Play link below, where you'll find more instructions and hints for this first challenge.
+3. Redefine those variables within **theme scopes**. You'll need to work out _what_ those scope selectors should be!
 
-Don't worry about code duplication for now. Let's start by making it work.
+4. **Don't worry about code duplication** for now. Let's start by making it work. Copy & paste like there is no tomorrow!
+
+You'll find more instructions and hints within the Play.
 
 ✌️ Good luck!
 
