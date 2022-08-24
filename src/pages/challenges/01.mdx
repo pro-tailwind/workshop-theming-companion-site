@@ -10,47 +10,107 @@ import { Reveal } from '../../components/reveal.jsx'
 We'll kick off the workshop with a little head start - three custom color themes:
 
 <div class="my-10 flex flex-wrap gap-6">
-    <div class="inline-flex overflow-hidden rounded-md" data-theme="base">
-      <div class="bg-base-50 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">50</div>
-      <div class="bg-base-100 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">100</div>
-      <div class="bg-base-200 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">200</div>
-      <div class="bg-base-300 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">300</div>
-      <div class="bg-base-400 text-base-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">400</div>
-      <div class="bg-base-500 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">500</div>
-      <div class="bg-base-600 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">600</div>
-      <div class="bg-base-700 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">700</div>
-      <div class="bg-base-800 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">800</div>
-      <div class="bg-base-900 text-base-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">900</div>
+  <div class="inline-flex overflow-hidden rounded-md" data-theme="base">
+    <div class="grid h-16 w-16 place-items-end bg-base-50 p-1 font-semibold leading-none text-base-900">
+      50
     </div>
-    <div class="inline-flex overflow-hidden rounded-md" data-theme="rainforest">
-      <div class="bg-rainforest-50 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">50</div>
-      <div class="bg-rainforest-100 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">100</div>
-      <div class="bg-rainforest-200 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">200</div>
-      <div class="bg-rainforest-300 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">300</div>
-      <div class="bg-rainforest-400 text-rainforest-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">400</div>
-      <div class="bg-rainforest-500 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">500</div>
-      <div class="bg-rainforest-600 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">600</div>
-      <div class="bg-rainforest-700 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">700</div>
-      <div class="bg-rainforest-800 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">800</div>
-      <div class="bg-rainforest-900 text-rainforest-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">900</div>
+    <div class="grid h-16 w-16 place-items-end bg-base-100 p-1 font-semibold leading-none text-base-900">
+      100
     </div>
-    <div class="inline-flex overflow-hidden rounded-md" data-theme="candy">
-      <div class="bg-candy-50 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">50</div>
-      <div class="bg-candy-100 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">100</div>
-      <div class="bg-candy-200 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">200</div>
-      <div class="bg-candy-300 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">300</div>
-      <div class="bg-candy-400 text-candy-900 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">400</div>
-      <div class="bg-candy-500 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">500</div>
-      <div class="bg-candy-600 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">600</div>
-      <div class="bg-candy-700 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">700</div>
-      <div class="bg-candy-800 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">800</div>
-      <div class="bg-candy-900 text-candy-50 grid h-16 w-16 place-items-end p-1 font-semibold leading-none">900</div>
+    <div class="grid h-16 w-16 place-items-end bg-base-200 p-1 font-semibold leading-none text-base-900">
+      200
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-300 p-1 font-semibold leading-none text-base-900">
+      300
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-400 p-1 font-semibold leading-none text-base-900">
+      400
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-500 p-1 font-semibold leading-none text-base-50">
+      500
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-600 p-1 font-semibold leading-none text-base-50">
+      600
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-700 p-1 font-semibold leading-none text-base-50">
+      700
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-800 p-1 font-semibold leading-none text-base-50">
+      800
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-base-900 p-1 font-semibold leading-none text-base-50">
+      900
     </div>
   </div>
+  <div class="inline-flex overflow-hidden rounded-md" data-theme="rainforest">
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-50 p-1 font-semibold leading-none text-rainforest-900">
+      50
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-100 p-1 font-semibold leading-none text-rainforest-900">
+      100
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-200 p-1 font-semibold leading-none text-rainforest-900">
+      200
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-300 p-1 font-semibold leading-none text-rainforest-900">
+      300
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-400 p-1 font-semibold leading-none text-rainforest-900">
+      400
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-500 p-1 font-semibold leading-none text-rainforest-50">
+      500
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-600 p-1 font-semibold leading-none text-rainforest-50">
+      600
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-700 p-1 font-semibold leading-none text-rainforest-50">
+      700
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-800 p-1 font-semibold leading-none text-rainforest-50">
+      800
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-rainforest-900 p-1 font-semibold leading-none text-rainforest-50">
+      900
+    </div>
+  </div>
+  <div class="inline-flex overflow-hidden rounded-md" data-theme="candy">
+    <div class="grid h-16 w-16 place-items-end bg-candy-50 p-1 font-semibold leading-none text-candy-900">
+      50
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-100 p-1 font-semibold leading-none text-candy-900">
+      100
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-200 p-1 font-semibold leading-none text-candy-900">
+      200
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-300 p-1 font-semibold leading-none text-candy-900">
+      300
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-400 p-1 font-semibold leading-none text-candy-900">
+      400
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-500 p-1 font-semibold leading-none text-candy-50">
+      500
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-600 p-1 font-semibold leading-none text-candy-50">
+      600
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-700 p-1 font-semibold leading-none text-candy-50">
+      700
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-800 p-1 font-semibold leading-none text-candy-50">
+      800
+    </div>
+    <div class="grid h-16 w-16 place-items-end bg-candy-900 p-1 font-semibold leading-none text-candy-50">
+      900
+    </div>
+  </div>
+</div>
 
-Creating color palettes from scratch _will_ send you down a _deceptively large_ rabbit hole, so we'll skip this bit. 
+Creating color palettes from scratch _will_ send you down a _deceptively large_ rabbit hole, so we'll skip this bit.
 
-There are [many useful online tools](#) to help you create color palettes. I used [Huetone](https://huetone.ardov.me) to create the three workshop color shades. 
+There are [many useful online tools](#) to help you create color palettes. I used [Huetone](https://huetone.ardov.me) to create the three workshop color shades.
 
 After the workshop, you should totally experiment with some of the great online tools!
 
@@ -140,11 +200,13 @@ module.exports = {
 
 Hmmmm. Is this... theming?
 
-<img src="/img/theming-butterfly.jpg" alt="butterfly meme about theming" class="rounded-lg shadow-xl" />
-
+<img
+  src="/img/theming-butterfly.jpg"
+  alt="butterfly meme about theming"
+  class="rounded-lg shadow-xl"
+/>
 
 Nope.
-
 
 **There is no theming happeneing at all here**. We've just extended our theme with new colors.
 
@@ -152,7 +214,7 @@ Each color is generating new, different utility classes. Like `bg-rainforest-500
 
 Those colors have a "hardcoded" value baked in their name. _One_ specific value.
 
-What we want is to be able to **use the same color utility class across all themes**. 
+What we want is to be able to **use the same color utility class across all themes**.
 
 We need a name that _makes sesnse_ regardless of what color that utility class represents. A _semantic_ color name.
 
@@ -177,12 +239,11 @@ Here's an example:
 .button {
   /* CSS var consumption */
   background-color: var(--primary-500);
-  ...
+  ...;
 }
-
 ```
 
-A great feature of CSS variables is that they can be *redefined* within any CSS selector. 
+A great feature of CSS variables is that they can be _redefined_ within any CSS selector.
 
 When doing so, the new value will **only take effect within the scope of that selector**:
 
@@ -193,14 +254,13 @@ When doing so, the new value will **only take effect within the scope of that se
 
 .button {
   background-color: var(--primary-500);
-  ...
+  ...;
 }
 
 .button--pink {
   /* Redefine the value of an existing CSS variable */
   --primary-500: deeppink;
 }
-
 ```
 
 With that in place, take the following markup:
@@ -213,8 +273,8 @@ With that in place, take the following markup:
 Here's how these two buttons will look like:
 
 <div class="flex gap-2">
-  <button class="px-5 py-2 rounded font-semibold text-white bg-base-500">Indigo button</button>
-  <button class="px-5 py-2 rounded font-semibold text-white bg-[deeppink]">Pink button</button>
+  <button class="rounded bg-base-500 px-5 py-2 font-semibold text-white">Indigo button</button>
+  <button class="rounded bg-[deeppink] px-5 py-2 font-semibold text-white">Pink button</button>
 </div>
 
 The Indigo button is using the color value defined at the `:root` scope. The Pink button uses the valued scoped to the `.button-pink` class.
@@ -237,13 +297,15 @@ Any HTML element within a given theme scope will get those updated values when r
 
 Leverage the power of CSS variables to create a new series of `primary` color shades, from `50` to `900`.
 
-These colors should: 
+These colors should:
 
-- have a base value at the **global scope** 
+- have a base value at the **global scope**
 - be redefined within **theme scopes**
 
 Do your work in the Tailwind Play link below, where you'll find more instructions and hints for this first challenge.
 
+Don't worry about code duplication for now. Let's start by making it work.
+
 ✌️ Good luck!
 
-<ButtonLink path="https://play.tailwindcss.com/uKxWz5kze4">Take challenge #1</ButtonLink>
+<ButtonLink path="https://play.tailwindcss.com/uKxWz5kze4">Start challenge</ButtonLink>

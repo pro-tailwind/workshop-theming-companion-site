@@ -1,0 +1,140 @@
+---
+layout: ../../layouts/Challenge.astro
+title: 02. Restore color opacity support
+image: /img/thumbnails/02.jpg
+---
+
+import ButtonLink from '../../components/ButtonLink.astro'
+import { Reveal } from '../../components/reveal.jsx'
+
+When implementing our themable colors, we’ve accidentally thrown away an important feature of Tailwind CSS: **Color Opacity management**.
+
+Oh no! 🙀
+
+## How Tailwind CSS handles opacity
+
+You may not even have thought about this, but there are no such properties as `text-opacity` or `background-opacity` in CSS.
+
+Yet, Tailwind CSS still provides `text-opacity` and `bg-opacity` utility classes that work flawlessly.
+
+**How?**
+
+Let’s take a look at a `background-color` class for a default Tailwind CSS color, like `bg-indigo-600` for example:
+
+```html
+<p class="bg-indigo-600">I love this color</p>
+```
+
+Here's the CSS generated for this utility class:
+
+```css
+.bg-indigo-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
+```
+
+See that `--tw-bg-opacity` CSS variable? It's being used to _compose_ the opacity into the background color, which is defined as an `rgb()` color.
+
+Nice!
+
+---
+
+## CSS variable composition
+
+By default, this opacity variable is set to `1`, or full opacity.
+
+Let's add a background opacity utilty to our paragraph tag:
+
+```html
+<p class="bg-indigo-600 bg-opacity-50">I love this color</p>
+```
+
+Can you guess what that `bg-opacity-50` class is doing?
+
+---
+
+<Reveal client:load title="the generated CSS">
+```css
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+```
+</Reveal>
+
+---
+
+That's right. It just _redefines_ the value of the `--tw-bg-opacity` variable. It doesn't apply any CSS property or anything!
+
+Since the opacity utilities are generated _after_ the color utilities in the CSS file, the value of the `--tw-bg-opacity` CSS variable is updated to `0.5`.
+
+As a result, the background color is now a `rgb()` color with a `0.5` alpha channel, or 50% opacity!
+
+```diff
+.bg-indigo-600 {
+-  --tw-bg-opacity: 1;
++  --tw-bg-opacity: 0.5;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
+```
+
+This is some pretty clever stuff, hopefully opening your eyes to what you can do with CSS variable composition.
+
+Tailwind CSS is full of mind bending CSS variable composition tricks.
+
+---
+
+## Tailwind CSS internally transform colors to RGB
+
+While Tailwind CSS is capable of working its internal magic to transform different color formats like HEX, RGB or HSL, it’s **not able to do that** when we **define colors as CSS variables**, as we currently do:
+
+```js
+theme: {
+    extend: {
+        textColors: {
+            base: 'var(--color-text-base)',
+            inverted: 'var(--color-text-inverted)',
+        }
+    }
+}
+```
+
+When using CSS variables, here's what CSS a similar background color utility would generate.
+
+The following utility class...
+
+```html
+<p class="bg-primary-600">I love this color</p>
+```
+
+... would generate this CSS:
+
+```css
+.bg-primary-600 {
+  background-color: var(--primary-600);
+}
+```
+
+No opacity composition anywhere.
+
+It’s just using the CSS variable we’ve passed to it.
+
+Adding a background opacity would do nothing, since it just updates the `--tw-bg-opacity` variable... which is never used in our `bg-primary-600` class.
+
+In other words, we’re stuck with using full opacity colors only with our current implementation.
+
+That’s a bummer!
+
+This is definitely not good enough to pretend to do real theming with Tailwind CSS.
+
+Let’s improve the situation in the next challenge!
+
+---
+
+## 🏆 Your challenge 🏆
+
+`// TODO`
+
+✌️ Good luck!
+
+<ButtonLink path="https://play.tailwindcss.com/7CtZnL4iZQ?file=css">Start challenge</ButtonLink>
