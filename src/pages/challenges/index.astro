@@ -18,6 +18,19 @@ const lessons = await Astro.glob('../challenges/**/*.{md,mdx}')
       We'll take it step by step, starting with a CSS file and ending with a pretty neat Tailwind
       CSS plugin that dynamically generates color utilities based on a themes object input.
     </p>
+    <p class="mt-4 max-w-prose text-lg font-medium text-slate-600 md:mt-6">
+      We'll do most our work in Tailwind Play, and use that code to add multiple color themes to the
+      Calendar App. You can spin up an instance of this app on Gitpod by clicking the button below:
+    </p>
+
+    <div class="mt-8">
+      <a
+        class="inline-block rounded-md bg-pink-600 px-5 py-3 font-semibold text-white hover:bg-pink-500 active:bg-pink-600"
+        href="https://gitpod.io/#https://github.com/pro-tailwind/workshop-multi-theme"
+      >
+        Open in Gitpod &rarr;
+      </a>
+    </div>
 
     <ul class="mx-auto mt-16 grid max-w-lg gap-8 md:max-w-none md:grid-cols-2 xl:grid-cols-3">
       {

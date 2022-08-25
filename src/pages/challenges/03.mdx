@@ -6,67 +6,60 @@ image: /img/thumbnails/03.jpg
 
 import ButtonLink from '../../components/ButtonLink.astro'
 
-# Let's bring back the opacity
+## 🐇 TL;DR
 
-TODO
+- Our code works, but is not re-usable
+- We're working in multiple files
+- Let's consolidate this into a **Tailwind CSS plugin**!
 
----
-
-<div data-theme="default" className="flex gap-4">
-  <div className="bg-default-500 h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-  <div className="bg-default-500 h-24 w-24 rounded-md bg-opacity-75 ring ring-inset ring-black/[0.15]"></div>
-  <div className="bg-default-500/50 h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-  <div className="bg-default-500/[0.25] h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-</div>
+⬇️ [Skip to the challenge](#-your-challenge)
 
 ---
 
-Here's the relevant code for this:
+## 🐢 Background
 
-```html
-<div className="bg-default-500 ..." />
-<div className="bg-default-500 bg-opacity-75 ..." />
-<div className="bg-default-500/50 ..." />
-<div className="bg-default-500/[0.25] ..." />
-```
+We've laid the foundations of our theming strategy. But we can probably improve our developer experience here.
 
----
+We’re defining our CSS variables **in a CSS file**. And we're generating new color utilities **in the Tailwind config** file.
 
-Now here's the same code using the `bg-primary` color instead, once for each theme:
+That would be nice if we could do **both things within the same file**.
 
----
+What if we want to support theming in another project using Tailwind CSS? Do we repeat this process for each new project?
 
-<div className="space-y-4">
-  <div data-theme="default" className="flex gap-4">
-    <div className="bg-primary-500 h-24 w-24 rounded-md bg-opacity-75 ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500 h-24 w-24 rounded-md bg-opacity-50 ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500/25 h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500/[0.1] h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-  </div>
-  <div data-theme="rainforest" className="flex gap-4">
-    <div className="bg-primary-500 h-24 w-24 rounded-md bg-opacity-75 ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500 h-24 w-24 rounded-md bg-opacity-50 ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500/25 h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500/[0.1] h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-  </div>
-  <div data-theme="candy" className="flex gap-4">
-    <div className="bg-primary-500 h-24 w-24 rounded-md bg-opacity-75 ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500 h-24 w-24 rounded-md bg-opacity-50 ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500/25 h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-    <div className="bg-primary-500/[0.1] h-24 w-24 rounded-md ring ring-inset ring-black/[0.15]"></div>
-  </div>
-</div>
+Surely there must be a better way.
 
 ---
 
-## Your challenge
+### The Tailwind Plugin API
 
-The examples above are clearly not supporting the opacity modifiers for the `primary` color.
+And that’s the Tailwind Plugin API.
 
-Let's fix that, so that each square shows the correct amount of opacity!
+Tailwind CSS offers a powerful Plugin API that lets you author CSS with the **full power of JavaScript**. It also allows you to **reuse functionality across projects**.
 
-Once again, you can't touch the markup.
+This will allow us to do all our theming work in one place, too!
 
-Good luck!
+Here's the relevant page from the [Tailwind CSS documentation website](https://tailwindcss.com/docs/plugins)
 
-<ButtonLink path="/workshop/03/challenge">Start challenge</ButtonLink>
+Before we port over our theming strategy, let's build a super simple "Hello World" plugin. Just to verify that it works.
+
+---
+
+## 🏆 Your challenge 🏆
+
+In the Tailwind Play below:
+
+1. In the JS tab, require the `plugin` function from `tailwindcss/plugin`.
+
+2. Use that function to create a simple plugin that generates the following CSS:
+
+   ```css
+   body {
+     text-transform: uppercase;
+   }
+   ```
+
+---
+
+✌️ Good luck!
+
+<ButtonLink path="https://play.tailwindcss.com/3xuCcLorCm?file=config">Start challenge</ButtonLink>
