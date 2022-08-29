@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Challenge.astro
-title: 11. Pass themes via plugin options
+title: 11. Pass themes as a plugin option
 image: https://placekitten.com/605/400
 ---
 
@@ -9,7 +9,8 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐇 TL;DR
 
-`// TODO`
+- We could stop right there, but let's look at **another way to pass the color themes** to our plugin
+- Let's use `plugin.withOptions()` from the Tailwind Plugin API!
 
 ⬇️ [Skip to the challenge](#-your-challenge)
 
@@ -17,16 +18,62 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐢 Background
 
-`// TODO`
+At this point, our plugin is fully functional, and can be used in any project using Tailwind CSS.
+
+While passing the color themes via a custon key in the Tailwind config works great, there is another approach worth considering.
+
+And that is to pass the color themes to the plugin as an option, via the `plugin.withOptions()` API.
+
+### Passing color themes as a plugin option
+
+When you register a plugin in your Tailwind config's `plugins` array, you can pass options to a given plugin:
+
+```diff
+module.exports = {
+  theme: {},
+  plugins: [
+-    multiThemePlugin,
++    multiThemePlugin({
++      themes: {
++          base: { ... }
++        }
++    })
+  ]
+}
+```
+
+The plugin code will need to be updated to use `plugin.withOptions` before this syntax works properly.
+
+### Why do that?
+
+I see two benefits from this approach over defining the color themes inside a custom config key:
+
+1. Avoiding accidental **namespace collisions**. When you define a new custom key, you're claiming a little "piece of land" within your Tailwind config.
+
+   What if you work on a large project with many other teams, and someone else brought some customisations to the exact same custom theme key?
+
+2. Defining your color themes as an option passed to the plugin feels more **collocated**. You literally register the plugin and provide it some themes in the very same place.
+
+Both approaches are totally valid, and have their trade-offs.
+
+Accessing the color themes via the `theme()` function _outside_ of the plugin might be something you want, and in that case you'd be better off defining your themes in a custom key, like we just did.
+
+It's all about understanding the tools and the trade-offs!
 
 ---
 
 ## 🏆 Your challenge 🏆
 
-`// TODO`
+In the Tailwind Play below...
+
+1. Move the color themes definition away from the custom config key. Instead, pass those directly to the plugin.
+
+2. Update the plugin code to use the `plugin.withOptions` API.
+
+You'll find more hints within the Play.
 
 ---
 
 ✌️ Good luck!
 
-<ButtonLink path="https://play.tailwindcss.com/zIjXNKIMYi?file=config">Start challenge</ButtonLink>
+<ButtonLink path="https://play.tailwindcss.com/b74Ol9n656?file=config">Start challenge</ButtonLink>

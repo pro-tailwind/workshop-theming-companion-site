@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Challenge.astro
-title: 10. Color utilities for nested objects
-image: https://placekitten.com/600/408
+title: 10. Define themes in Tailwind config
+image: https://placekitten.com/605/400
 ---
 
 import ButtonLink from '../../components/ButtonLink.astro'
@@ -9,7 +9,8 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐇 TL;DR
 
-`// TODO`
+- The last "hardcoded" thing is how the color themes are made available to the plugin
+- Let's allow users to define their own color themes in the Tailwind config!
 
 ⬇️ [Skip to the challenge](#-your-challenge)
 
@@ -17,16 +18,66 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐢 Background
 
-`// TODO`
+Whoaaa. At this point, our plugin is pretty badass.
+
+The one weird thing remaning is how the color themes are made available to the plugin. Right now, we're defining those themes _inside_ the plugin.
+
+It would be way more useful to allow users of our plugin to define the themes themselves, and make our plugin accept that data.
+
+We can do this in a couple of different ways, and we'll start by doing it via a custom Tailwind config theme key.
+
+### Adding a custom key to our Tailwind config
+
+In our Tailwind config's `theme` object, we can create a new key, which we'll be able to read from within the plugin.
+
+Since our plugin is called `multiTheme`, how about creating a `multiTheme` key in our `theme` object in the config?
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    // We can define a custom theme key for our color themes
+    multiTheme: {
+      base: {
+        primary: { ... },
+        secondary: {... }
+      },
+      rainforest: { ... },
+      candy: { ... }
+    },
+  },
+}
+```
+
+We'll be able to access this key anwyere where Tailwind's `theme()` function works.
+
+News flash - it's almost everywhere. You can use it in your `CSS`, in your `HTML` and...
+
+...in `JavaScript` with the Plugin API!
+
+To read a theme value within a plugin, you can use the `theme` function available inside the `plugin()` function:
+
+```js
+plugin(function ({ addbase, theme }) {
+  const colorThemes = theme('multiTheme')
+  addBase({
+    // ...
+  })
+})
+```
 
 ---
 
 ## 🏆 Your challenge 🏆
 
-`// TODO`
+In the Tailwind Play below...
+
+1. Move the color themes definition into a custom key inside the Tailwind config's theme.
+
+2. Update the plugin code to read the color theme values from the config file instead.
 
 ---
 
 ✌️ Good luck!
 
-<ButtonLink path="https://play.tailwindcss.com/zIjXNKIMYi?file=config">Start challenge</ButtonLink>
+<ButtonLink path="https://play.tailwindcss.com/rDJz6TTY5b?file=config">Start challenge</ButtonLink>

@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Challenge.astro
-title: 12. Add a secondary color scheme
-image: https://placekitten.com/607/400
+title: 12. What next?
+image: https://placekitten.com/602/404
 ---
 
 import ButtonLink from '../../components/ButtonLink.astro'
@@ -9,24 +9,38 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐇 TL;DR
 
-`// TODO`
-
-⬇️ [Skip to the challenge](#-your-challenge)
-
----
-
-## 🐢 Background
-
-`// TODO`
+- We did it - we built a reusable multi-theme Tailwind CSS plugin 🎉
+- **You** did it, and you have now acquired a new **Tailwind superpower** ⚡️⚡️
+- What would you do next?
 
 ---
 
-## 🏆 Your challenge 🏆
+## 🧠 What would you do next?
 
-`// TODO`
+Now that you understand the key moving parts of building multi-theme support in Tailwind CSS, you can probably see how the same approach could be extented further.
+
+How about branching off colors and adding different `rounded corners`, `shadows` or `font families` for each theme?
+
+Our current plugin only supports working the `colors` object, but I am usre you ca imagine how instead of passing _just_ color objects, we could pass objects that extend/update multiple of Tailwind's `corePlugins` like `borderRadius`, `shadow` or `fontFamily`...
+
+The core concepts underlying that approach remain the same: define CSS variables holiding specific values at the `root` scope, and redefine those variables within theme-specific scopes.
+
+And the Tailwind CSS Plugin API gives you all the power you need to handle everything your mind can think of!
 
 ---
 
-✌️ Good luck!
+## ❤️ Thank you!
 
-<ButtonLink path="https://play.tailwindcss.com/zIjXNKIMYi?file=config">Start challenge</ButtonLink>
+I hope this workshop was both educative and entertaining for you!
+
+I had a lot of fun preparing the materials for it, and I really hope you had a good time going through it with me.
+
+### I would love your feedback
+
+I would love if you can take 2 minutes to fill up the workshop feedback form.
+
+It helps me improve the content for my online course and workshops!
+
+<ButtonLink path="https://docs.google.com/forms/d/e/1FAIpQLScZFL_W7h413tiNpp_Xyn4hEfMTNGpwFvFdXnqLOEbiU7s4Uw/viewform?usp=pp_url&entry.1747016377=Traditional+Theming">
+  <span>Fill the feedback survey</span> <span>&rarr;</span>
+</ButtonLink>

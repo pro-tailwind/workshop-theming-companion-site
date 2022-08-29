@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Challenge.astro
-title: 09. CSS vars for nested objects
+title: 09. Generate colors dynamically
 image: https://placekitten.com/600/409
 ---
 
@@ -9,7 +9,8 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐇 TL;DR
 
-`// TODO`
+- Let's stop **hard coding** `primary` color shades, and read values from the color themes instead.
+- We should support multi-level, nested color objects!
 
 ⬇️ [Skip to the challenge](#-your-challenge)
 
@@ -17,16 +18,85 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐢 Background
 
-`// TODO`
+Up to this point, we've been _assuming_ that we want to generate a `primary` color with `50` to `900` shades.
+
+This assumption makes our plugin very "rigid", and we cannot pretend this code is truly reusable.
+
+What we need to do next is generate our CSS variables and color utilities based on what the `themes` actually contain.
+
+We want to support multi-level color objects, where nested properties generate "kebab-case" utilities.
+
+Take the following theme object for the `base` theme:
+
+```js
+const themes = {
+  base: {
+    primary: {
+      50: '#eef2ff',
+      100: '#e0e7ff',
+      200: '#d0d7f7',
+      300: '#aab9ff',
+      400: '#8994ff',
+      500: '#6b70fc',
+      600: '#554fee',
+      700: '#453ccd',
+      800: '#3830a2',
+      900: '#272173',
+    },
+    secondary: {
+      some: {
+        nested: {
+          color: '#0099aa',
+        },
+      },
+    },
+  },
+  // ...
+}
+```
+
+Here, we explicitely ask for `primary-50` to `primary-900` colors within the `primary` key.
+
+But we also demand a `secondary` key, with a "deep nested" color property.
+
+Nested properties should generate `kebab-case` color keys, so in that case, here's what CSS variable we should expect for the `secondary` color:
+
+```js
+'--secondary-some-nested-color': getRgbChannels('#0099aa')
+```
+
+And the matching counterpart, where we extend the `colors` theme object in the config, should look like that:
+
+```js
+secondary: {
+  some: {
+    nested: {
+      color: 'rgb(var(--secondary-some-nested-color) / <alpha-value>)'
+    }
+  }
+}
+```
+
+Generating these CSS variables and theme extension objects dynamically based on the "input" would make our plugin infinitely more reusable and versatile.
+
+And we can use JavaScript to do this!
 
 ---
 
 ## 🏆 Your challenge 🏆
 
-`// TODO`
+In the Tailwind Play below:
+
+1. Write a JavaScript function that _traverses_ a given object input, and generates the appropriate kebab-cased CSS variables.
+
+   Use that function to replace the "hardcoded" `primary-50` to `primary-900` CSS variables currently in place.
+
+2. Write a similar function that generates the appropriate **colors extension object**, and use that to replace the hardcoded `primary` object currently extending the color theme in the `config`.
+
+You'll find more hints within the Play.
 
 ---
 
 ✌️ Good luck!
 
-<ButtonLink path="https://play.tailwindcss.com/zIjXNKIMYi?file=config">Start challenge</ButtonLink>
+<ButtonLink path="https://play.tailwindcss.com/b6I3uDPvbT?file=config">Start challenge</ButtonLink>
