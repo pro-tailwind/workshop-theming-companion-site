@@ -9,9 +9,8 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐇 TL;DR
 
-- We start with 3 custom color shades: `base`, `rainforest` and `candy`
-- These are "normal" colors, they don't change between themes
-- We need to **define these colors as CSS variables**, so they can change!
+- We're currently **not** doing any theming with our extended colors
+- Let's **define these colors as CSS variables**, so they can change from theme to theme!
 
 ⬇️ [Skip to the challenge](#-your-first-challenge)
 
@@ -19,171 +18,7 @@ import { Reveal } from '../../components/reveal.jsx'
 
 ## 🐢 Background
 
-We'll kick off the workshop with a little head start - three custom color themes:
-
-<div class="not-prose my-10 flex flex-wrap gap-6">
-  <div class="inline-flex overflow-hidden rounded-md" data-theme="base">
-    <div class="grid h-16 w-16 place-items-end bg-base-50 p-1 font-semibold leading-none text-base-900">
-      50
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-100 p-1 font-semibold leading-none text-base-900">
-      100
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-200 p-1 font-semibold leading-none text-base-900">
-      200
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-300 p-1 font-semibold leading-none text-base-900">
-      300
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-400 p-1 font-semibold leading-none text-base-900">
-      400
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-500 p-1 font-semibold leading-none text-base-50">
-      500
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-600 p-1 font-semibold leading-none text-base-50">
-      600
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-700 p-1 font-semibold leading-none text-base-50">
-      700
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-800 p-1 font-semibold leading-none text-base-50">
-      800
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-base-900 p-1 font-semibold leading-none text-base-50">
-      900
-    </div>
-  </div>
-  <div class="inline-flex overflow-hidden rounded-md" data-theme="rainforest">
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-50 p-1 font-semibold leading-none text-rainforest-900">
-      50
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-100 p-1 font-semibold leading-none text-rainforest-900">
-      100
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-200 p-1 font-semibold leading-none text-rainforest-900">
-      200
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-300 p-1 font-semibold leading-none text-rainforest-900">
-      300
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-400 p-1 font-semibold leading-none text-rainforest-900">
-      400
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-500 p-1 font-semibold leading-none text-rainforest-50">
-      500
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-600 p-1 font-semibold leading-none text-rainforest-50">
-      600
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-700 p-1 font-semibold leading-none text-rainforest-50">
-      700
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-800 p-1 font-semibold leading-none text-rainforest-50">
-      800
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-rainforest-900 p-1 font-semibold leading-none text-rainforest-50">
-      900
-    </div>
-  </div>
-  <div class="inline-flex overflow-hidden rounded-md" data-theme="candy">
-    <div class="grid h-16 w-16 place-items-end bg-candy-50 p-1 font-semibold leading-none text-candy-900">
-      50
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-100 p-1 font-semibold leading-none text-candy-900">
-      100
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-200 p-1 font-semibold leading-none text-candy-900">
-      200
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-300 p-1 font-semibold leading-none text-candy-900">
-      300
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-400 p-1 font-semibold leading-none text-candy-900">
-      400
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-500 p-1 font-semibold leading-none text-candy-50">
-      500
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-600 p-1 font-semibold leading-none text-candy-50">
-      600
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-700 p-1 font-semibold leading-none text-candy-50">
-      700
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-800 p-1 font-semibold leading-none text-candy-50">
-      800
-    </div>
-    <div class="grid h-16 w-16 place-items-end bg-candy-900 p-1 font-semibold leading-none text-candy-50">
-      900
-    </div>
-  </div>
-</div>
-
-Creating color palettes from scratch _will_ send you down a _deceptively large_ rabbit hole, so we'll skip this bit.
-
-There are [many useful online tools](#) to help you create color palettes. I used [Huetone](https://huetone.ardov.me) to create the three workshop color shades.
-
-After the workshop, you should totally experiment with some of the great online tools!
-
----
-
-Click on the toggle below to show the code for our three color themes.
-
-<Reveal title="color themes code" client:load>
-
-```js
-const themes = {
-  base: {
-    50: '#eef2ff',
-    100: '#e0e7ff',
-    200: '#d0d7f7',
-    300: '#aab9ff',
-    400: '#8994ff',
-    500: '#6b70fc',
-    600: '#554fee',
-    700: '#453ccd',
-    800: '#3830a2',
-    900: '#272173',
-  },
-  rainforest: {
-    50: '#ecfdf4',
-    100: '#c9f2de',
-    200: '#9de9c6',
-    300: '#56d0a0',
-    400: '#00b380',
-    500: '#009268',
-    600: '#007955',
-    700: '#006344',
-    800: '#005038',
-    900: '#003422',
-  },
-  candy: {
-    50: '#fdf2f8',
-    100: '#f7e2ee',
-    200: '#f8cce5',
-    300: '#f5a4d0',
-    400: '#f271b5',
-    500: '#e13d90',
-    600: '#c31667',
-    700: '#a1004b',
-    800: '#84003d',
-    900: '#590028',
-  },
-}
-```
-
-</Reveal>
-
----
-
-You can see that we've followed Tailwind's convention of `*-50` to `*-900` for naming our shades.
-
-We could use totally different shade names, but since we're going to implement multiple themes to _an already existing_ Tailwind CSS project, matching the naming convention will make our lives much easier.
-
----
-
-### Current implementation
+As we just noted, our current implementation of extra colors has nothing to do with **theming**.
 
 Right now, we're just defining three new colors in our Tailwind config:
 
@@ -204,16 +39,6 @@ module.exports = {
 }
 ```
 
-Hmmmm. Is this... theming?
-
-<img
-  src="/img/theming-butterfly.jpg"
-  alt="butterfly meme about theming"
-  class="rounded-lg shadow-xl"
-/>
-
-Nope.
-
 **There is no theming happeneing at all here**. We've just extended our theme with new colors.
 
 Each color is generating new, different utility classes. Like `bg-rainforest-500`, or `text-candy-800`.
@@ -227,79 +52,6 @@ We need a name that _makes sesnse_ regardless of what color that utility class r
 We should be able to **redefine that color** based on the currently active theme.
 
 To do this, let's leverage the power of **CSS custom properties**, or CSS variables.
-
----
-
-### CSS variables for the win!
-
-CSS variables are defined with a two-dash prefix `--`, and consumed with the `var()` function.
-
-Here's an example:
-
-```css
-:root {
-  /* CSS var definition */
-  --primary-500: #6b70fc;
-}
-
-.button {
-  /* CSS var consumption */
-  background-color: var(--primary-500);
-  ...;
-}
-```
-
-A great feature of CSS variables is that they can be _redefined_ within any CSS selector.
-
-When doing so, the new value will **only take effect within the scope of that selector**:
-
-```css
-:root {
-  --primary-500: #6b70fc;
-}
-
-.button {
-  background-color: var(--primary-500);
-  ...;
-}
-
-.button--pink {
-  /* Redefine the value of an existing CSS variable */
-  --primary-500: deeppink;
-}
-```
-
-With that in place, take the following markup:
-
-```html
-<button class="button">Indigo button</button>
-<button class="button button--pink">Pink button</button>
-```
-
-Here's how these two buttons will look like:
-
-<div class="not-prose flex gap-2">
-  <button class="rounded bg-base-500 px-5 py-2 font-semibold text-white hover:bg-opacity-90">
-    Indigo button
-  </button>
-  <button class="rounded bg-[deeppink] px-5 py-2 font-semibold text-white hover:bg-opacity-90">
-    Pink button
-  </button>
-</div>
-
-The Indigo button is using the color value defined at the `:root` scope. The Pink button uses the valued scoped to the `.button-pink` class.
-
-This is **incredibly useful** for our theming use case.
-
----
-
-### Nested CSS variable scopes
-
-You can declare CSS variable at the top level - **the root scope** - in your CSS. These values will be available everywhere throughout the project.
-
-You can then create “theme scope” selectors, where you redefine these same CSS variables with new values.
-
-Any HTML element within a given theme scope will get those updated values when reading on of the CSS variables!
 
 ---
 
