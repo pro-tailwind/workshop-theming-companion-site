@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageContainer from '../../components/PageContainer.astro'
+import PageHeading from '../../components/PageHeading.astro'
+---
+
+<Layout title="feedback">
+  <PageContainer>
+    <PageHeading>Workshop feedback</PageHeading>
+    <p class="mt-4 max-w-prose text-lg font-medium text-slate-600 md:mt-6">
+      I'd really appreciate if you could take a couple of minutes to fill this feedback survey. It
+      really helps me improve the workshop materials!
+    </p>
+
+    <div class="mt-8">
+      <a
+        class="inline-block rounded-md bg-black px-5 py-3 font-semibold text-white hover:bg-black/80 active:bg-black/90"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScZFL_W7h413tiNpp_Xyn4hEfMTNGpwFvFdXnqLOEbiU7s4Uw/viewform?usp=pp_url&entry.1747016377=Multi-theme+Strategy+–+Overall+feedback"
+      >
+        Overall Workshop Feedback &rarr;
+      </a>
+    </div>
+
+    <p class="mt-4 max-w-prose text-lg font-medium text-slate-600 md:mt-6">
+      If you didn't have time to fill one of the 3 segment-specific surveys, you can find a link to
+      that here as well:
+    </p>
+
+    <div class="mt-8 flex gap-2">
+      <a
+        class="inline-block rounded-md bg-green-600 px-5 py-3 font-semibold text-white hover:bg-green-500 active:bg-green-600"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScZFL_W7h413tiNpp_Xyn4hEfMTNGpwFvFdXnqLOEbiU7s4Uw/viewform?usp=pp_url&entry.1747016377=Multi-theme+Strategy+–+Segment+1"
+      >
+        Segment 1 Feedback &rarr;
+      </a>
+      <a
+        class="inline-block rounded-md bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-500 active:bg-indigo-600"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScZFL_W7h413tiNpp_Xyn4hEfMTNGpwFvFdXnqLOEbiU7s4Uw/viewform?usp=pp_url&entry.1747016377=Multi-theme+Strategy+–+Segment+2"
+      >
+        Segment 2 Feedback &rarr;
+      </a>
+      <a
+        class="inline-block rounded-md bg-pink-600 px-5 py-3 font-semibold text-white hover:bg-pink-500 active:bg-pink-600"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScZFL_W7h413tiNpp_Xyn4hEfMTNGpwFvFdXnqLOEbiU7s4Uw/viewform?usp=pp_url&entry.1747016377=Multi-theme+Strategy+–+Segment+3"
+      >
+        Segment 3 Feedback &rarr;
+      </a>
+    </div>
+  </PageContainer>
+</Layout>
